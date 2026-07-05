@@ -4,8 +4,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # Dataset Location
-DATASET_PATH = r"C:\Users\Wariz\Downloads\COVID-19_Radiography_Dataset"
-
+DATASET_PATH = r"C:\Users\Wariz\Downloads\COVID-19_Clean"
 # Models
 BASELINE_MODEL = PROJECT_ROOT / "models" / "baseline" / "lungvision_cnn.keras"
 EFFICIENTNET_MODEL = PROJECT_ROOT / "models" / "efficientnet" / "efficientnet.keras"
@@ -19,7 +18,7 @@ REPORT_DIR = OUTPUT_DIR / "reports"
 # Classes (must match dataset order)
 CLASS_NAMES = [
     "COVID",
-    "Lung_Opacity",
-    "Normal",
-    "Viral Pneumonia"
+    "lung_opacity",
+    "normal",
+    "viral_pneumonia"
 ]

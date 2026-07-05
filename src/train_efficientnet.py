@@ -1,6 +1,11 @@
 import tensorflow as tf
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras import layers, models
+from tensorflow.keras.callbacks import (
+    EarlyStopping,
+    ModelCheckpoint,
+    ReduceLROnPlateau
+)
 from config import DATASET_PATH, EFFICIENTNET_MODEL
 
 # Load dataset
@@ -57,12 +62,32 @@ model.compile(
 model.summary()
 
 # Train
+callbacks = [
+    EarlyStopping(
+        monitor="val_loss",
+        patience=3,
+        restore_best_weights=True
+    ),
+
+    ModelCheckpoint(
+        filepath=EFFICIENTNET_MODEL,
+        monitor="val_accuracy",
+        save_best_only=True
+    ),
+
+    ReduceLROnPlateau(
+        monitor="val_loss",
+        factor=0.2,
+        patience=2,
+        min_lr=1e-6
+    )
+]
 history = model.fit(
     train_ds,
     validation_data=val_ds,
-    epochs=5
+    epochs=15,
+    callbacks=callbacks
 )
-
 # Save model
 model.save(EFFICIENTNET_MODEL)
 

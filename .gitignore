@@ -1,19 +1,21 @@
-# Virtual Environment
-.venv/
-
 # Python
 __pycache__/
 *.pyc
 
+# Virtual Environment
+.venv/
+
 # VS Code
 .vscode/
 
-# Jupyter
-.ipynb_checkpoints/
+# Streamlit
+.streamlit/
 
-# TensorFlow
-logs/
+# Generated Files
+Prediction_Report.pdf
+temp_xray.jpg
+src/gradcam_result.png
 
-# OS
-.DS_Store
-Thumbs.db
+# Model checkpoints
+*.h5
+*.keras
