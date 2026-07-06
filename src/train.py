@@ -1,3 +1,9 @@
+import os
+
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+
+import tensorflow as tf
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import os
@@ -10,8 +16,8 @@ train_ds = tf.keras.utils.image_dataset_from_directory(
     validation_split=0.2,
     subset="training",
     seed=42,
-    image_size=(224, 224),
-    batch_size=32
+    image_size=(128, 128),
+    batch_size=8
 )
 
 val_ds = tf.keras.utils.image_dataset_from_directory(
@@ -19,8 +25,8 @@ val_ds = tf.keras.utils.image_dataset_from_directory(
     validation_split=0.2,
     subset="validation",
     seed=42,
-    image_size=(224, 224),
-    batch_size=32
+    image_size=(128, 128),
+    batch_size=8
 )
 
 AUTOTUNE = tf.data.AUTOTUNE
