@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="assets/banner.png" alt="LungVision AI Banner" width="100%">
+</p>
 # 🫁 LungVision AI
 
 > AI-Powered Chest X-Ray Disease Detection using Deep Learning
